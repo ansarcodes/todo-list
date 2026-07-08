@@ -1,4 +1,4 @@
-class Project {
+export default class Project {
     constructor(name) {
         this.name = name;
         this.todoList = [];
@@ -9,8 +9,7 @@ class Project {
     removeTodo(todo){
         this.todoList.splice(this.todoList.indexOf(todo),1);
     };
-    get todos(){
+    todoList(){
         return this.todoList;
     }
 }
-export {Project};
