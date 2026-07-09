@@ -1,9 +1,9 @@
 class todoItem {
     constructor(title, description, dueDate, priority){
-        title = this.title;
-        description = this.description;
-        dueDate = this.dueDate;
-        priority = this.priority;
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate;
+        this.priority = priority;
         this.isComplete = false;
     };
     markComplete() {
