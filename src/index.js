@@ -1,7 +1,7 @@
-import { todoItem } from "./todo.js";
+import TodoItem from "./todo.js";
 import Project from "./projects.js";
 
-let item = new todoItem("test title", "test description", "01012027", "1");
+let item = new TodoItem("test title", "test description", "01012027", "1");
 
 console.log(item);
 
