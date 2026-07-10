@@ -6,7 +6,4 @@ export default class TodoItem {
         this.priority = priority;
         this.isComplete = false;
     };
-    markComplete() {
-        this.isComplete = !this.isComplete;
-    }
 };
