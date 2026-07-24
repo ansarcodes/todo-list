@@ -22,8 +22,8 @@ function projectController(projectList){
         projectListContainer.appendChild(project);
     });
 };
-function todoController(todoList, container){
-    todoList.forEach(todo => {
-        container.appendChild(todo);
-    })
-}
+// function mainController(project){
+//     todoList.forEach(todo => {
+//         container.appendChild(todo);
+//     })
+// }
