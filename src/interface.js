@@ -11,6 +11,7 @@ function projectController(projectList){
         projectItem.todoList.forEach(todoItem => {
             const todo = document.createElement("div");
             todo.classList.add("todo");
+            todo.classList.add(`priority-${todoItem.priority}`);
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             const todoDueDate = document.createElement("div");
