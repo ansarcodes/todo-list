@@ -14,14 +14,18 @@ function projectController(projectList){
             todo.classList.add(`priority-${todoItem.priority}`);
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
+            todoName.textContent = todoItem.title;
             const todoDueDate = document.createElement("div");
             todoDueDate.classList.add("todo-due-date");
-            todo.appendChildren(todoName, todoDueDate);
+            todoDueDate.textContent = todoItem.DueDate;
+            todo.append(todoName, todoDueDate);
+            projectTodoList.appendChild(todo);
         })
-        project.appendChildren(projectName, projectTodoList);
+        project.append(projectName, projectTodoList);
         projectListContainer.appendChild(project);
     });
 };
+export { projectController };
 // function mainController(project){
 //     todoList.forEach(todo => {
 //         container.appendChild(todo);
