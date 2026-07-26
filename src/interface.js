@@ -17,7 +17,7 @@ function projectController(projectList){
             todoName.textContent = todoItem.title;
             const todoDueDate = document.createElement("div");
             todoDueDate.classList.add("todo-due-date");
-            todoDueDate.textContent = todoItem.DueDate;
+            todoDueDate.textContent = todoItem.dueDate;
             todo.append(todoName, todoDueDate);
             projectTodoList.appendChild(todo);
         })

@@ -39,5 +39,6 @@ project1.addTodo(item1);
 project1.addTodo(item2);
 projectList.add(project1);
 console.log(project1.todoList);
+projectController(projectList.get());
 // console.log(projectList.get());
 // projectController(projectList.get());
