@@ -25,9 +25,17 @@ function projectController(projectList){
         projectListContainer.appendChild(project);
     });
 };
+function mainController(todo){
+    const mainContainer = document.querySelector("#main-container");
+    const mainTitle = document.createElement("div");
+    mainTitle.classList.add("main-title");
+    mainTitle.textContent = todo.title;
+    const mainDueDate = document.createElement("div");
+    mainDueDate.classList.add("main-due-date");
+    mainDueDate.textContent = todo.dueDate;
+    const mainDescription = document.createElement("div");
+    mainDescription.classList.add("main-description");
+    mainDescription.textContent = todo.description;
+    mainContainer.append(mainTitle, mainDescription,);
+}
 export { projectController };
-// function mainController(project){
-//     todoList.forEach(todo => {
-//         container.appendChild(todo);
-//     })
-// }
