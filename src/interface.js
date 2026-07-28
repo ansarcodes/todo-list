@@ -33,9 +33,12 @@ function mainController(todo){
     const mainDueDate = document.createElement("div");
     mainDueDate.classList.add("main-due-date");
     mainDueDate.textContent = todo.dueDate;
+    const mainPriority = document.createElement("div");
+    mainPriority.classList.add(`priority-${todo.priority}`);
+    mainPriority.textContent = todo.priority;
     const mainDescription = document.createElement("div");
     mainDescription.classList.add("main-description");
     mainDescription.textContent = todo.description;
-    mainContainer.append(mainTitle, mainDescription,);
+    mainContainer.append(mainTitle, mainDueDate, mainPriority, mainDescription,);
 }
 export { projectController };
