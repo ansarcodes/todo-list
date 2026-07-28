@@ -41,4 +41,4 @@ function mainController(todo){
     mainDescription.textContent = todo.description;
     mainContainer.append(mainTitle, mainDueDate, mainPriority, mainDescription,);
 }
-export { projectController };
+export { projectController, mainController };
