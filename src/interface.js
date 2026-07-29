@@ -26,7 +26,7 @@ function projectController(projectList){
     });
 };
 function mainController(todo){
-    const mainContainer = document.querySelector("#main-container");
+    const mainContainer = document.querySelector(".main-container");
     const mainTitle = document.createElement("div");
     mainTitle.classList.add("main-title");
     mainTitle.textContent = todo.title;
