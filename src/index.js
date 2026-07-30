@@ -1,3 +1,4 @@
+import "./style.css";
 import TodoItem from "./todo.js";
 import Project from "./projects.js";
 import { todoManipulation, projectList } from "./application.js";
