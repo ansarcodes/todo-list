@@ -34,8 +34,10 @@ function mainController(todo){
     mainDueDate.classList.add("main-due-date");
     mainDueDate.textContent = todo.dueDate;
     const mainPriority = document.createElement("div");
-    mainPriority.classList.add(`priority-${todo.priority}`);
+    mainPriority.classList.add(`priority-${todo.priority.toLowerCase()}`);
     mainPriority.textContent = todo.priority;
+    const mainCompleteStatus = document.createElement("div");
+    mainCompleteStatus.classList.add(`completed-${todo.isComplete}`);
     const mainDescription = document.createElement("div");
     mainDescription.classList.add("main-description");
     mainDescription.textContent = todo.description;
