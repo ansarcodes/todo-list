@@ -5,6 +5,7 @@ import renderPage from "./render.js";
 // import { todoManipulation, projectList } from "./application.js";
 // import { mainController, projectController } from "./interface.js";
 
+renderPage();
 // let item = new TodoItem("test title", "test description", "01012027", "1");
 // console.log(item.isComplete);
 // todoManipulation.markComplete(item);
@@ -45,4 +46,3 @@ import renderPage from "./render.js";
 // mainController(item1);
 // console.log(projectList.get());
 // projectController(projectList.get());
-renderPage();
