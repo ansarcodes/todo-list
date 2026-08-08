@@ -11,7 +11,7 @@ function projectController(projectList){
         projectItem.todoList.forEach(todoItem => {
             const todo = document.createElement("div");
             todo.classList.add("todo");
-            todo.classList.add(`priority-${todoItem.priority}`);
+            todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
@@ -41,6 +41,6 @@ function mainController(todo){
     const mainDescription = document.createElement("div");
     mainDescription.classList.add("main-description");
     mainDescription.textContent = todo.description;
-    mainContainer.append(mainTitle, mainDueDate, mainPriority, mainDescription,);
+    mainContainer.append(mainTitle, mainDueDate, mainPriority, mainCompleteStatus, mainDescription);
 }
 export { projectController, mainController };

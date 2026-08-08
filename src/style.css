@@ -19,3 +19,15 @@ body {
     padding: 1rem;
     background-color: aquamarine;
 }
+.priority-high {
+    background-color: rgb(255, 128, 128);
+}
+.priority-mid {
+    background-color: rgb(255, 255, 128);
+}
+.priority-low {
+    background-color: rgb(128, 255, 128);
+}
+.completed-true::after {
+    content: "Completed";
+}
