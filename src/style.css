@@ -31,3 +31,8 @@ body {
 .completed-true::after {
     content: "Completed";
 }
+.todo {
+    display: flex;
+    padding: 0.125rem;
+    gap: 0.5rem;
+}

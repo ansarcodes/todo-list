@@ -12,13 +12,16 @@ function projectController(projectList){
             const todo = document.createElement("div");
             todo.classList.add("todo");
             todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
+            const todoMark = document.createElement("input");
+            todoMark.type="checkbox";
+            todoMark.classList.add("todo-checkbox"); 
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
             const todoDueDate = document.createElement("div");
             todoDueDate.classList.add("todo-due-date");
             todoDueDate.textContent = todoItem.dueDate;
-            todo.append(todoName, todoDueDate);
+            todo.append(todoMark, todoName, todoDueDate);
             projectTodoList.appendChild(todo);
         })
         project.append(projectName, projectTodoList);
