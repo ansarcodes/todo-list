@@ -15,9 +15,4 @@ export default function renderPage(){
     console.log(project1.todoList);
     projectController(projectList.get());
     mainController(item1);
-    document.querySelectorAll(".todo-checkbox").forEach((item)=>{
-        item.addEventListener("click", () => {
-            // todoManipulation.markComplete(projectList.get()[projectList.indexOf()])
-        })
-    })
 }

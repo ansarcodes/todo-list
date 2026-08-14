@@ -5,6 +5,5 @@ export default class TodoItem {
         this.dueDate = dueDate;
         this.priority = priority;
         this.isComplete = false;
-        this.id = crypto.randomUUID();
     };
 };

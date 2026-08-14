@@ -1,5 +1,8 @@
+import { todoManipulation } from "./application.js";
+
 function projectController(projectList){
     const projectListContainer = document.querySelector(".project-list");
+    projectListContainer.replaceChildren();
     projectList.forEach(projectItem => {
         const project = document.createElement("div");
         project.classList.add("project");
@@ -15,7 +18,11 @@ function projectController(projectList){
             const todoMark = document.createElement("input");
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
-            todoMark.dataset.id = `${todoItem.id}`;
+            todoMark.addEventListener("input", () => {
+                todoManipulation.markComplete(todoItem);
+                console.log(todoItem);
+            })
+            todoMark.checked && todoManipulation.markComplete(todoItem);
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
@@ -31,6 +38,7 @@ function projectController(projectList){
 };
 function mainController(todo){
     const mainContainer = document.querySelector(".main-container");
+    mainContainer.replaceChildren();
     const mainTitle = document.createElement("div");
     mainTitle.classList.add("main-title");
     mainTitle.textContent = todo.title;

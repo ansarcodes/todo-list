@@ -36,3 +36,6 @@ body {
     padding: 0.125rem;
     gap: 0.5rem;
 }
+.todo-checkbox:checked ~ div {
+    text-decoration: line-through;
+}
