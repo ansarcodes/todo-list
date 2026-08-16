@@ -16,4 +16,13 @@ export default function renderPage(){
     projectController(projectList.get());
     mainController(item1);
     // mainController(item2);
+    console.log(item1.id);
+    document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
+        checkbox.addEventListener("click", () => {
+            todoManipulation.markComplete(project1.todoList.find(todo=>todo.id==event.target.dataset.id));
+            projectController(projectList.get());
+            mainController(item1);
+            console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
+        })
+    })
 }
