@@ -18,11 +18,11 @@ function projectController(projectList){
             const todoMark = document.createElement("input");
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
-            todoMark.addEventListener("input", () => {
-                todoManipulation.markComplete(todoItem);
-                console.log(todoItem);
-            })
-            todoMark.checked && todoManipulation.markComplete(todoItem);
+            // todoMark.addEventListener("input", () => {
+            //     todoManipulation.markComplete(todoItem);
+            //     console.log(todoItem);
+            // })
+            console.log(todoMark.checked && todoManipulation.markComplete(todoItem));
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;

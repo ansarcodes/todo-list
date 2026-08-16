@@ -12,8 +12,8 @@ export default function renderPage(){
     project1.addTodo(item2);
     project1.addTodo(item3);
     projectList.add(project1);
-    console.log(project1.todoList);
+    // console.log(project1.todoList);
     projectController(projectList.get());
     mainController(item1);
-    mainController(item2);
+    // mainController(item2);
 }
