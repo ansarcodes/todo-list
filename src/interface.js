@@ -19,6 +19,9 @@ function projectController(projectList){
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
             todoMark.dataset.id = todoItem.id;
+            // todoMark.addEventListener("click", () => {
+            //     todoManipulation.markComplete(todoItem);
+            // })
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
