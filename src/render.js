@@ -15,12 +15,17 @@ export default function renderPage(){
     projectController(projectList.get());
     mainController(item1);
     // mainController(item2);
-    console.log(item1.id);
+    // console.log(item1.id);
     document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
         checkbox.addEventListener("click", () => {
             todoManipulation.markComplete(project1.todoList.find(todo=>todo.id==event.target.dataset.id));
             mainController(item1);
-            console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
+            // console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
+        })
+    })
+    document.querySelectorAll(".todo").forEach((todoDiv)=>{
+        todoDiv.addEventListener("click", () => {
+            mainController(project1.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
         })
     })
 }
