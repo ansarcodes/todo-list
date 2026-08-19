@@ -55,5 +55,5 @@ function mainController(todo){
     mainContainer.append(mainTitle, mainDueDate, mainPriority, mainCompleteStatus, mainDescription);
 }
 
-
+//edit, delete buttons; add project/todo button; change html structure; maybe add interface at the end of every project/buttons
 export { projectController, mainController };
