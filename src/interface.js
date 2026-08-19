@@ -1,4 +1,4 @@
-import { todoManipulation } from "./application.js";
+// import { todoManipulation } from "./application.js";
 
 function projectController(projectList){
     const projectListContainer = document.querySelector(".project-list");
@@ -54,5 +54,6 @@ function mainController(todo){
     mainDescription.textContent = todo.description;
     mainContainer.append(mainTitle, mainDueDate, mainPriority, mainCompleteStatus, mainDescription);
 }
+
 
 export { projectController, mainController };

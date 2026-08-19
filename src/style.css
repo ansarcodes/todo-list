@@ -39,3 +39,7 @@ body {
 .todo-checkbox:checked ~ div {
     text-decoration: line-through;
 }
+
+.project-name::after {
+    content: "Edit";
+}
