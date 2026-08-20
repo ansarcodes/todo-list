@@ -7,10 +7,22 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="sidebar-title">Projects</div>
+        <div class="sidebar-title-container">
+            <div class="sidebar-title">Projects</div>
+            <div class="add-project">
+                <button id="add-project-btn" popovertarget="add-project">+</button>
+            </div>
+        </div>
         <div class="project-list"></div>
-        <div class="manage-projects"></div>
     </div>
-    <div class="main-container"></div>
+    <div class="main-container">
+        <dialog id="add-project" popover>
+            <form action="" id="add-project-dialog-form">
+                <div class="new-project-title">
+
+                </div>
+            </form>
+        </dialog>
+    </div>
 </body>
 </html>
