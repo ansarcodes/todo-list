@@ -10,18 +10,22 @@
         <div class="sidebar-title-container">
             <div class="sidebar-title">Projects</div>
             <div class="add-project">
-                <button id="add-project-btn" popovertarget="add-project">+</button>
+                <button id="add-project-btn" popovertarget="add-project-dialog">+</button>
             </div>
         </div>
         <div class="project-list"></div>
     </div>
     <div class="main-container">
-        <dialog id="add-project" popover>
+    </div>
+    <div class="dialog-container">
+        <dialog id="add-project-dialog" popover>
+            <button popovertarget="add-project-dialog" popovertargetaction="hide" id="close-dialog-btn" type="button">X</button>        
             <form action="" id="add-project-dialog-form">
                 <div class="new-project-title">
                     <label for="new-project-title">Title:</label>
                     <input type="text" name="new-project-title" id="new-project-title">
                 </div>
+                <button id="add-new-project-btn">Add project</button>
             </form>
         </dialog>
     </div>

@@ -37,4 +37,12 @@ export default function renderPage(){
             mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
         })
     })
+    document.getElementById("add-new-project-btn").addEventListener("click", (event)=>{
+        let newProject = new Project(document.getElementById("new-project-title").value);
+        projectList.add(newProject);
+        document.getElementById("add-project-dialog-form").reset();
+        document.getElementById("add-project-dialog").hidePopover();
+        event.preventDefault();
+        projectController(projectList.get());
+    })
 }
