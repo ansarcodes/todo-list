@@ -11,8 +11,11 @@ function projectController(projectList){
         projectName.textContent = projectItem.name;
         const projectAddTodoBtn = document.createElement("button");
         projectAddTodoBtn.classList.add("project-add-todo-btn");
-        projectAddTodoBtn.textContent = "+"
-        projectName.appendChild(projectAddTodoBtn);
+        projectAddTodoBtn.textContent = "+";
+        const projectEditBtn = document.createElement("button");
+        projectEditBtn.classList.add("project-edit-btn");
+        projectEditBtn.textContent = "edit_icon";
+        projectName.append(projectAddTodoBtn, projectEditBtn);
         const projectTodoList = document.createElement("div");
         projectTodoList.classList.add("project-todo-list");
         projectItem.todoList.forEach(todoItem => {
