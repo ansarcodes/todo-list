@@ -44,5 +44,5 @@ export default function renderPage(){
         document.getElementById("add-project-dialog").hidePopover();
         event.preventDefault();
         projectController(projectList.get());
-    })
+    });
 }

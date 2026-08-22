@@ -40,9 +40,6 @@ body {
     text-decoration: line-through;
 }
 
-.project-name::after {
-    content: "Edit";
-}
 dialog {
     margin: auto;
     padding: 1rem;
