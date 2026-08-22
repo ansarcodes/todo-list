@@ -9,6 +9,10 @@ function projectController(projectList){
         const projectName = document.createElement("div");
         projectName.classList.add("project-name");
         projectName.textContent = projectItem.name;
+        const projectAddTodoBtn = document.createElement("button");
+        projectAddTodoBtn.classList.add("project-add-todo-btn");
+        projectAddTodoBtn.textContent = "+"
+        projectName.appendChild(projectAddTodoBtn);
         const projectTodoList = document.createElement("div");
         projectTodoList.classList.add("project-todo-list");
         projectItem.todoList.forEach(todoItem => {
@@ -19,9 +23,6 @@ function projectController(projectList){
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
             todoMark.dataset.id = todoItem.id;
-            // todoMark.addEventListener("click", () => {
-            //     todoManipulation.markComplete(todoItem);
-            // })
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
