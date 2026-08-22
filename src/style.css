@@ -43,3 +43,9 @@ body {
 .project-name::after {
     content: "Edit";
 }
+dialog {
+    position: absolute;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+}
