@@ -45,4 +45,9 @@ export default function renderPage(){
         event.preventDefault();
         projectController(projectList.get());
     });
+    // document.querySelectorAll(".project-add-todo-btn").forEach((addTodoBtn)=>{
+    //     addTodoBtn.addEventListener("click", () => {
+
+    //     })
+    // })
 }
