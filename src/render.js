@@ -45,5 +45,9 @@ export default function renderPage(){
         event.preventDefault();
         projectController(projectList.get());
     });
-    // document.getElementById("project-add-new-todo-btn").addEventListener("click", ())
+    //change popover to modal i guess, otherwise not possible to stalk which project opened it
+    document.getElementById("project-add-new-todo-btn").addEventListener("click", (event)=>{
+        console.log(document.getElementById("project-add-new-todo-btn").activeElement);
+        event.preventDefault();
+    })
 }
