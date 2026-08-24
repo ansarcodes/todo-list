@@ -11,7 +11,7 @@ function projectController(projectList){
         projectName.textContent = projectItem.name;
         const projectAddTodoBtn = document.createElement("button");
         projectAddTodoBtn.classList.add("project-add-todo-btn");
-        projectAddTodoBtn.popoverTargetElement = "project-add-todo-dialog";
+        projectAddTodoBtn.popoverTargetElement = document.getElementById("project-add-todo-dialog");
         projectAddTodoBtn.textContent = "+";
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");

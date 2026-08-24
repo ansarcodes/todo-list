@@ -30,6 +30,28 @@
         </dialog>
         <dialog id="project-add-todo-dialog" popover>
             <button popovertarget="project-add-todo-dialog" popovertargetaction="hide" class="close-dialog-btn" type="button">X</button>
+            <form action="" id="project-add-todo-form">
+                <div class="new-todo-title">
+                    <label for="new-todo-title">Title:</label>
+                    <input type="text" name="new-todo-title" id="new-todo-title">
+                </div>
+                <div class="new-todo-description">
+                    <label for="new-todo-description">Description:</label>
+                    <input type="text" name="new-todo-description" id="new-todo-description">
+                </div>
+                <div class="new-todo-due-date">
+                    <label for="new-todo-due-date">Due date:</label>
+                    <input type="date" name="new-todo-due-date" id="new-todo-due-date">
+                </div>
+                <div class="new-todo-priority">
+                    <label for="new-todo-priority">Priority:</label>
+                    <select name="new-todo-priority" id="new-todo-priority">
+                        <option value="Low">Low</option>
+                        <option value="Mid">Mid</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+            </form>
         </dialog>
     </div>
 </body>
