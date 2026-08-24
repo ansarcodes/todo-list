@@ -21,7 +21,7 @@ export default function renderPage(){
     // mainController(item2);
     // console.log(item1.id);
     document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
-        checkbox.addEventListener("click", () => {
+        checkbox.addEventListener("click", (event) => {
             todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
             // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
             // projectList.get().forEach((project)=>{
@@ -45,9 +45,5 @@ export default function renderPage(){
         event.preventDefault();
         projectController(projectList.get());
     });
-    // document.querySelectorAll(".project-add-todo-btn").forEach((addTodoBtn)=>{
-    //     addTodoBtn.addEventListener("click", () => {
-
-    //     })
-    // })
+    // document.getElementById("project-add-new-todo-btn").addEventListener("click", ())
 }
