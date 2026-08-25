@@ -6,6 +6,8 @@ function projectController(projectList){
     projectList.forEach(projectItem => {
         const project = document.createElement("div");
         project.classList.add("project");
+        const projectNameContainer = document.createElement("div");
+        projectNameContainer.classList.add("project-name-container");
         const projectName = document.createElement("div");
         projectName.classList.add("project-name");
         projectName.textContent = projectItem.name;
@@ -17,7 +19,7 @@ function projectController(projectList){
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");
         projectEditBtn.textContent = "edit_icon";
-        projectName.append(projectAddTodoBtn, projectEditBtn);
+        projectNameContainer.append(projectName, projectAddTodoBtn, projectEditBtn);
         const projectTodoList = document.createElement("div");
         projectTodoList.classList.add("project-todo-list");
         projectItem.todoList.forEach(todoItem => {
@@ -37,10 +39,60 @@ function projectController(projectList){
             todo.append(todoMark, todoName, todoDueDate);
             projectTodoList.appendChild(todo);
         })
-        project.append(projectName, projectTodoList);
+        project.append(projectNameContainer, projectTodoList);
         projectListContainer.appendChild(project);
     });
 };
+// function projectController(projectList){
+//     const projectListContainer = document.querySelector(".project-list");
+//     projectListContainer.replaceChildren();
+//     projectList.forEach(projectItem => {
+//         const project = document.createElement("div");
+//         project.classList.add("project");
+//         const projectNameContainer = document.createElement("div");
+//         projectNameContainer.classList.add("project-name-container");
+//         const projectName = document.createElement("div");
+//         projectName.classList.add("project-name");
+//         projectName.textContent = projectItem.name;
+//         const projectAddTodoBtn = document.createElement("button");
+//         projectAddTodoBtn.classList.add("project-add-todo-btn");
+//         projectAddTodoBtn.command = "show-modal";
+//         projectAddTodoBtn.commandForElement = document.getElementById("project-add-todo-dialog");
+//         projectAddTodoBtn.textContent = "+";
+//         const projectEditBtn = document.createElement("button");
+//         projectEditBtn.classList.add("project-edit-btn");
+//         projectEditBtn.textContent = "edit_icon";
+//         projectNameContainer.append(projectName, projectAddTodoBtn, projectEditBtn);
+//         const projectTodoList = document.createElement("div");
+//         projectTodoList.classList.add("project-todo-list");
+//         projectItem.todoList.forEach(todoItem => {
+//             const todo = document.createElement("div");
+//             todo.classList.add("todo");
+//             todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
+//             const todoMark = document.createElement("input");
+//             todoMark.type="checkbox";
+//             todoMark.classList.add("todo-checkbox");
+//             todoMark.dataset.id = todoItem.id;
+//             const todoName = document.createElement("div");
+//             todoName.classList.add("todo-name");
+//             todoName.textContent = todoItem.title;
+//             const todoDueDate = document.createElement("div");
+//             todoDueDate.classList.add("todo-due-date");
+//             todoDueDate.textContent = todoItem.dueDate;
+//             todo.append(todoMark, todoName, todoDueDate);
+//             projectTodoList.appendChild(todo);
+//         })
+//         project.append(projectNameContainer, projectTodoList);
+//         projectListContainer.appendChild(project);
+//     });
+// };
+// function projectTodoListController(projectList){
+//     const projectTodoListContainer = document.querySelector(".project-todo-list");
+//     projectList.forEach((projectItem)=>{
+//         document.querySelector("project-name").textContent == projectItem.name
+//     })
+    
+// };
 function mainController(todo){
     const mainContainer = document.querySelector(".main-container");
     mainContainer.replaceChildren();
