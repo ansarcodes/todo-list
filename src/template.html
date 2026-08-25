@@ -28,8 +28,8 @@
                 <button id="add-new-project-btn">Add project</button>
             </form>
         </dialog>
-        <dialog id="project-add-todo-dialog" popover>
-            <button popovertarget="project-add-todo-dialog" popovertargetaction="hide" class="close-dialog-btn" type="button">X</button>
+        <dialog id="project-add-todo-dialog">
+            <button command="close" commandFor="project-add-todo-dialog" class="close-dialog-btn" type="button">X</button>
             <form action="" id="project-add-todo-form">
                 <div class="new-todo-title">
                     <label for="new-todo-title">Title:</label>
