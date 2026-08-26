@@ -20,56 +20,50 @@ export default function renderPage(){
     mainController(item1);
     // mainController(item2);
     // console.log(item1.id);
-    function todoEventListeners() {
-        document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
-            checkbox.addEventListener("click", (event) => {
-                todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
-                // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
-                // projectList.get().forEach((project)=>{
-                //     project.todoList.find()
-                //     todoManipulation.markComplete(project.todoList.find(todo=>todo.id==event.target.dataset.id));
-                // })
-                // mainController(item1);
-                // console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
-            })
+    document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
+        checkbox.addEventListener("click", (event) => {
+            todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
+            // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
+            // projectList.get().forEach((project)=>{
+            //     project.todoList.find()
+            //     todoManipulation.markComplete(project.todoList.find(todo=>todo.id==event.target.dataset.id));
+            // })
+            // mainController(item1);
+            // console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
         })
-        document.querySelectorAll(".todo").forEach((todoDiv)=>{
-            todoDiv.addEventListener("click", () => {
-                mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
-            })
+    })
+    document.querySelectorAll(".todo").forEach((todoDiv)=>{
+        todoDiv.addEventListener("click", () => {
+            mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
         })
-
-    }
-    todoEventListeners();
+    })
     document.getElementById("add-new-project-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
         let newProject = new Project(document.getElementById("new-project-title").value);
         projectList.add(newProject);
         document.getElementById("add-project-dialog-form").reset();
         document.getElementById("add-project-dialog").hidePopover();
-        event.preventDefault();
         projectController(projectList.get());
-        todoEventListeners();
+        eventListeners();
     });
     //add edit button as well, google how to queryselectorall multiple selectors
     document.querySelectorAll(".project-add-todo-btn").forEach((button)=>{
         button.addEventListener("click", () => {
             document.getElementById("project-add-todo-dialog").dataset.openedBy = button.parentElement.querySelector(".project-name").textContent;
-            // todoEventListeners();
         })
     })
     document.getElementById("project-add-new-todo-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
         let newTodoTitle = document.getElementById("new-todo-title").value;
         let newTodoDescription = document.getElementById("new-todo-description").value;
         let newTodoDueDate = document.getElementById("new-todo-due-date").value;
         let newTodoPriority = document.getElementById("new-todo-priority").value;
         let newTodo = new TodoItem(newTodoTitle, newTodoDescription, newTodoDueDate, newTodoPriority);
-        projectList.get().find(project=>project.name==document.getElementById("project-add-todo-dialog").dataset.openedBy).addTodo(newTodo);
+        let projectName = document.getElementById("project-add-todo-dialog").dataset.openedBy;
+        // projectList.get().find(project=>project.name==document.getElementById("project-add-todo-dialog").dataset.openedBy).addTodo(newTodo);
         // console.log(projectList.get().find((project)=>project.name=="1"));
         // console.log(document.getElementById("project-add-todo-dialog"))
-        document.getElementById("project-add-todo-dialog").close();
-        document.getElementById("project-add-todo-form").reset();
-        event.preventDefault();
-        projectController(projectList.get());
-        todoEventListeners();
+        // document.getElementById("project-add-todo-dialog").close();
+        // document.getElementById("project-add-todo-form").reset();
     })
 }
