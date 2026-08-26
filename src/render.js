@@ -20,23 +20,27 @@ export default function renderPage(){
     mainController(item1);
     // mainController(item2);
     // console.log(item1.id);
-    document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
-        checkbox.addEventListener("click", (event) => {
-            todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
-            // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
-            // projectList.get().forEach((project)=>{
-            //     project.todoList.find()
-            //     todoManipulation.markComplete(project.todoList.find(todo=>todo.id==event.target.dataset.id));
-            // })
-            // mainController(item1);
-            // console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
+    function todoListeners() {
+        document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
+            checkbox.addEventListener("click", (event) => {
+                todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
+                // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
+                // projectList.get().forEach((project)=>{
+                //     project.todoList.find()
+                //     todoManipulation.markComplete(project.todoList.find(todo=>todo.id==event.target.dataset.id));
+                // })
+                // mainController(item1);
+                // console.log(project1.todoList.find(todo=>todo.id==event.target.dataset.id))
+            })
         })
-    })
-    document.querySelectorAll(".todo").forEach((todoDiv)=>{
-        todoDiv.addEventListener("click", () => {
-            mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
+        document.querySelectorAll(".todo").forEach((todoDiv)=>{
+            todoDiv.addEventListener("click", () => {
+                mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
+            })
         })
-    })
+
+    };
+    todoListeners();
     document.getElementById("add-new-project-btn").addEventListener("click", (event)=>{
         event.preventDefault();
         let newProject = new Project(document.getElementById("new-project-title").value);
@@ -63,6 +67,7 @@ export default function renderPage(){
         // console.log(Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectName).closest(".project"));
         // console.log(document.querySelector(".project"));
         projectTodoListController(projectList.get());
+        todoListeners();
         // console.log(projectList.get().find((project)=>project.name=="1"));
         // console.log(document.getElementById("project-add-todo-dialog"))
         document.getElementById("project-add-todo-dialog").close();
