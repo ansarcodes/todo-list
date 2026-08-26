@@ -89,9 +89,10 @@ function projectController(projectList){
 };
 function projectTodoListController(projectList){
     projectList.forEach((projectItem)=>{
-        Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project").replaceChildren();
-        const projectTodoListContainer = Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project-todo-list");
-        Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).todoList.forEach(todoItem => {
+        // console.log(Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project").querySelector(".project-todo-list"));
+        const projectTodoListContainer = Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project").querySelector(".project-todo-list");
+        projectTodoListContainer.replaceChildren();
+        projectItem.todoList.forEach(todoItem => {
             const todo = document.createElement("div");
             todo.classList.add("todo");
             todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);

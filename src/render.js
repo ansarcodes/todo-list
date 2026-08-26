@@ -1,7 +1,7 @@
 import TodoItem from "./todo.js";
 import Project from "./projects.js";
 import { todoManipulation, projectList } from "./application.js";
-import { mainController, projectController } from "./interface.js";
+import { mainController, projectController, projectTodoListController } from "./interface.js";
 export default function renderPage(){
     let project1 = new Project("1");
     let project2 = new Project("2");
@@ -44,7 +44,6 @@ export default function renderPage(){
         document.getElementById("add-project-dialog-form").reset();
         document.getElementById("add-project-dialog").hidePopover();
         projectController(projectList.get());
-        eventListeners();
     });
     //add edit button as well, google how to queryselectorall multiple selectors
     document.querySelectorAll(".project-add-todo-btn").forEach((button)=>{
@@ -60,10 +59,13 @@ export default function renderPage(){
         let newTodoPriority = document.getElementById("new-todo-priority").value;
         let newTodo = new TodoItem(newTodoTitle, newTodoDescription, newTodoDueDate, newTodoPriority);
         let projectName = document.getElementById("project-add-todo-dialog").dataset.openedBy;
-        // projectList.get().find(project=>project.name==document.getElementById("project-add-todo-dialog").dataset.openedBy).addTodo(newTodo);
+        projectList.get().find(project=>project.name==projectName).addTodo(newTodo);
+        // console.log(Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectName).closest(".project"));
+        // console.log(document.querySelector(".project"));
+        projectTodoListController(projectList.get());
         // console.log(projectList.get().find((project)=>project.name=="1"));
         // console.log(document.getElementById("project-add-todo-dialog"))
-        // document.getElementById("project-add-todo-dialog").close();
-        // document.getElementById("project-add-todo-form").reset();
+        document.getElementById("project-add-todo-dialog").close();
+        document.getElementById("project-add-todo-form").reset();
     })
 }
