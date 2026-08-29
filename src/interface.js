@@ -60,10 +60,10 @@ function projectController(projectList){
         projectAddTodoBtn.classList.add("project-add-todo-btn");
         projectAddTodoBtn.command = "show-modal";
         projectAddTodoBtn.commandForElement = document.getElementById("project-add-todo-dialog");
-        projectAddTodoBtn.textContent = "+";
         const projectAddTodoBtnIcon = document.createElement("img");
-        projectAddTodoBtnIcon.classList("add-icon");
+        projectAddTodoBtnIcon.classList.add("add-icon");
         projectAddTodoBtnIcon.src = addIcon;
+        projectAddTodoBtn.append(projectAddTodoBtnIcon);
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");
         projectEditBtn.textContent = "edit_icon";
