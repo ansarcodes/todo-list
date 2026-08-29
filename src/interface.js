@@ -1,4 +1,6 @@
 import addIcon from "./images/add_icon.png";
+import editIcon from "./images/edit_icon.png";
+import removeIcon from "./images/remove_icon.png";
 // import { todoManipulation } from "./application.js";
 
 // function projectController(projectList){
@@ -66,7 +68,10 @@ function projectController(projectList){
         projectAddTodoBtn.append(projectAddTodoBtnIcon);
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");
-        projectEditBtn.textContent = "edit_icon";
+        const projectEditBtnIcon = document.createElement("img");
+        projectEditBtnIcon.classList.add("edit-icon");
+        projectEditBtnIcon.src = editIcon;
+        projectEditBtn.append(projectEditBtnIcon);
         projectNameContainer.append(projectName, projectAddTodoBtn, projectEditBtn);
         const projectTodoList = document.createElement("div");
         projectTodoList.classList.add("project-todo-list");
@@ -86,10 +91,16 @@ function projectController(projectList){
             todoDueDate.textContent = todoItem.dueDate;
             const todoEditBtn = document.createElement("button");
             todoEditBtn.classList.add("todo-edit-btn");
-            todoEditBtn.textContent = "edit_icon";
+            const todoEditBtnIcon = document.createElement("img");
+            todoEditBtnIcon.classList.add("edit-icon");
+            todoEditBtnIcon.src = editIcon;
+            todoEditBtn.append(todoEditBtnIcon);
             const todoRemoveBtn = document.createElement("button");
             todoRemoveBtn.classList.add("todo-remove-btn");
-            todoRemoveBtn.textContent = "remove_icon";
+            const todoRemoveBtnIcon = document.createElement("img");
+            todoRemoveBtnIcon.classList.add("remove-icon");
+            todoRemoveBtnIcon.src = removeIcon;
+            todoRemoveBtn.append(todoRemoveBtnIcon);
             todo.append(todoMark, todoName, todoDueDate, todoEditBtn, todoRemoveBtn);
             projectTodoList.appendChild(todo);
         })
