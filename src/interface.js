@@ -80,7 +80,13 @@ function projectController(projectList){
             const todoDueDate = document.createElement("div");
             todoDueDate.classList.add("todo-due-date");
             todoDueDate.textContent = todoItem.dueDate;
-            todo.append(todoMark, todoName, todoDueDate);
+            const todoEditBtn = document.createElement("button");
+            todoEditBtn.classList.add("todo-edit-btn");
+            todoEditBtn.textContent = "edit_icon";
+            const todoRemoveBtn = document.createElement("button");
+            todoRemoveBtn.classList.add("todo-remove-btn");
+            todoRemoveBtn.textContent = "remove_icon";
+            todo.append(todoMark, todoName, todoDueDate, todoEditBtn, todoRemoveBtn);
             projectTodoList.appendChild(todo);
         })
         project.append(projectNameContainer, projectTodoList);
