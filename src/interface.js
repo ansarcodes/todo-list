@@ -1,3 +1,4 @@
+import addIcon from "./images/add_icon.png";
 // import { todoManipulation } from "./application.js";
 
 // function projectController(projectList){
@@ -60,6 +61,9 @@ function projectController(projectList){
         projectAddTodoBtn.command = "show-modal";
         projectAddTodoBtn.commandForElement = document.getElementById("project-add-todo-dialog");
         projectAddTodoBtn.textContent = "+";
+        const projectAddTodoBtnIcon = document.createElement("img");
+        projectAddTodoBtnIcon.classList("add-icon");
+        projectAddTodoBtnIcon.src = addIcon;
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");
         projectEditBtn.textContent = "edit_icon";

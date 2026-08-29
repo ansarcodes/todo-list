@@ -25,11 +25,11 @@ export default {
             },
             {
                 test: /\.(png|jpg|jpeg|svg|gif|webp)$/i,
-                use: "asset/resource",
+                type: "asset/resource",
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                use: "asset/resource",
+                type: "asset/resource",
             },
         ],
     },
