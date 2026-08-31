@@ -57,6 +57,20 @@ export default function renderPage(){
         todoListeners();
         console.log(projectList.get());
     });
+    // document.querySelectorAll(".project-edit-btn").forEach((button)=>{
+    // button.addEventListener("click", (event)=>{
+    //     console.log(event.target);
+    //     // event.preventDefault();
+    
+    //     // let newProject = new Project(document.getElementById("new-project-title").value);
+    //     // projectList.add(newProject);
+    //     // document.getElementById("edit-project-dialog-form").reset();
+    //     // document.getElementById("edit-project-dialog").hidePopover();
+    //     // projectController(projectList.get());
+    //     // todoListeners();
+    //     // console.log(projectList.get());
+    // });
+
     document.getElementById("project-add-new-todo-btn").addEventListener("click", (event)=>{
         event.preventDefault();
         let newTodoTitle = document.getElementById("new-todo-title").value;

@@ -68,6 +68,8 @@ function projectController(projectList){
         projectAddTodoBtn.append(projectAddTodoBtnIcon);
         const projectEditBtn = document.createElement("button");
         projectEditBtn.classList.add("project-edit-btn");
+        projectEditBtn.command = "show-modal";
+        projectEditBtn.commandForElement = document.getElementById("edit-project-dialog");
         const projectEditBtnIcon = document.createElement("img");
         projectEditBtnIcon.classList.add("edit-icon");
         projectEditBtnIcon.src = editIcon;

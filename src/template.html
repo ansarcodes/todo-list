@@ -30,6 +30,16 @@
                 <button id="add-new-project-btn">Add project</button>
             </form>
         </dialog>
+        <dialog id="edit-project-dialog">
+            <button command="close" commandFor="edit-project-dialog" class="close-dialog-btn" type="button">X</button>        
+            <form action="" id="edit-project-dialog-form">
+                <div class="edit-project-title">
+                    <label for="edit-project-title">Title:</label>
+                    <input type="text" name="edit-project-title" id="edit-project-title">
+                </div>
+                <button id="edit-project-btn">Rename project</button>
+            </form>
+        </dialog>
         <dialog id="project-add-todo-dialog">
             <button command="close" commandFor="project-add-todo-dialog" class="close-dialog-btn" type="button">X</button>
             <form action="" id="project-add-todo-form">
