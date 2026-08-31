@@ -44,6 +44,11 @@ export default function renderPage(){
                 document.getElementById("project-add-todo-dialog").dataset.openedBy = button.parentElement.querySelector(".project-name").textContent;
             })
         })
+        document.querySelectorAll(".project-edit-btn").forEach((button)=>{
+            button.addEventListener("click", () => {
+                document.getElementById("edit-project-dialog").dataset.openedBy = button.parentElement.querySelector(".project-name").textContent;
+            })
+        })
     };
     todoListeners();
     
@@ -57,19 +62,19 @@ export default function renderPage(){
         todoListeners();
         console.log(projectList.get());
     });
-    // document.querySelectorAll(".project-edit-btn").forEach((button)=>{
-    // button.addEventListener("click", (event)=>{
-    //     console.log(event.target);
-    //     // event.preventDefault();
+
+    document.getElementById("edit-project-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
+        let projectName = document.getElementById("edit-project-dialog").dataset.openedBy;
+        let projectNewName = document.getElementById("edit-project-title").value;
+        projectList.get().find(project=>project.name==projectName).name = projectNewName;
+        document.getElementById("edit-project-dialog").close();
+        document.getElementById("edit-project-dialog-form").reset();
+        projectController(projectList.get());
+        todoListeners();
+        console.log(projectList.get());
+    });
     
-    //     // let newProject = new Project(document.getElementById("new-project-title").value);
-    //     // projectList.add(newProject);
-    //     // document.getElementById("edit-project-dialog-form").reset();
-    //     // document.getElementById("edit-project-dialog").hidePopover();
-    //     // projectController(projectList.get());
-    //     // todoListeners();
-    //     // console.log(projectList.get());
-    // });
 
     document.getElementById("project-add-new-todo-btn").addEventListener("click", (event)=>{
         event.preventDefault();
