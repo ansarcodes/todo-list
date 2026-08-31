@@ -94,6 +94,8 @@ function projectController(projectList){
             todoDueDate.textContent = todoItem.dueDate;
             const todoEditBtn = document.createElement("button");
             todoEditBtn.classList.add("todo-edit-btn");
+            todoEditBtn.command = "show-modal";
+            todoEditBtn.commandForElement = document.getElementById("edit-todo-dialog");
             const todoEditBtnIcon = document.createElement("img");
             todoEditBtnIcon.classList.add("edit-icon");
             todoEditBtnIcon.src = editIcon;
