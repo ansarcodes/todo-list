@@ -44,6 +44,19 @@ export default function renderPage(){
                 // mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
             })
         })
+        document.querySelectorAll(".todo-edit-btn").forEach((button)=>{
+            button.addEventListener("click", () => {
+                let projectId = button.closest(".project").dataset.id;
+                let todoId = button.closest(".todo").dataset.id;
+                let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+                document.getElementById("edit-todo-dialog").dataset.openedBy = todoId;
+                document.getElementById("edit-todo-title").value = todoItem.title;
+                document.getElementById("edit-todo-description").value = todoItem.description;
+                document.getElementById("edit-todo-due-date").value = todoItem.dueDate;
+                document.getElementById("edit-todo-priority").value = todoItem.priority;
+
+            })
+        });
         //add edit button as well, google how to queryselectorall multiple selectors
         document.querySelectorAll(".project-add-todo-btn").forEach((button)=>{
             button.addEventListener("click", () => {
@@ -55,12 +68,6 @@ export default function renderPage(){
                 document.getElementById("edit-project-dialog").dataset.openedBy = button.closest(".project").dataset.id;
             })
         });
-        document.querySelectorAll(".todo-edit-btn").forEach((button)=>{
-            button.addEventListener("click", () => {
-                console.log(button.closest(".todo"));
-                // document.getElementById("edit-todo-dialog").dataset.openedBy = button.closest(".todo-checkbox").dataset.id;
-            })
-        })
     };
     todoListeners();
     
@@ -74,20 +81,7 @@ export default function renderPage(){
         todoListeners();
         console.log(projectList.get());
     });
-
-    document.getElementById("edit-project-btn").addEventListener("click", (event)=>{
-        event.preventDefault();
-        let projectId = document.getElementById("edit-project-dialog").dataset.openedBy;
-        let projectNewName = document.getElementById("edit-project-title").value;
-        projectList.get().find(project=>project.id==projectId).name = projectNewName;
-        document.getElementById("edit-project-dialog").close();
-        document.getElementById("edit-project-dialog-form").reset();
-        projectController(projectList.get());
-        todoListeners();
-        console.log(projectList.get());
-    });
     
-
     document.getElementById("project-add-new-todo-btn").addEventListener("click", (event)=>{
         event.preventDefault();
         let newTodoTitle = document.getElementById("new-todo-title").value;
@@ -107,6 +101,37 @@ export default function renderPage(){
         document.getElementById("project-add-todo-dialog").close();
         document.getElementById("project-add-todo-form").reset();
     })
+
+    document.getElementById("edit-project-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
+        let projectId = document.getElementById("edit-project-dialog").dataset.openedBy;
+        let projectNewName = document.getElementById("edit-project-title").value;
+        projectList.get().find(project=>project.id==projectId).name = projectNewName;
+        document.getElementById("edit-project-dialog").close();
+        document.getElementById("edit-project-dialog-form").reset();
+        projectController(projectList.get());
+        todoListeners();
+        console.log(projectList.get());
+    });
+
+    document.getElementById("edit-todo-btn").addEventListener("click", (event)=>{
+    event.preventDefault();
+    let todoId = document.getElementById("edit-todo-dialog").dataset.openedBy;
+    let projectId = document.querySelector(`[data-id="${todoId}"]`).closest(".project").dataset.id;
+    let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+    todoItem.title = document.getElementById("edit-todo-title").value;
+    todoItem.description = document.getElementById("edit-todo-description").value;
+    todoItem.dueDate = document.getElementById("edit-todo-due-date").value;
+    todoItem.priority = document.getElementById("edit-todo-priority").value;
+
+    projectController(projectList.get());
+    mainController(todoItem);
+    todoListeners();
+    document.getElementById("edit-todo-dialog").close();
+    document.getElementById("edit-todo-form").reset();
+})
+    
+
 }
 
 //edit project, maybe recycle dialog forms
