@@ -66,6 +66,32 @@
                 <button id="project-add-new-todo-btn">Add</button>
             </form>
         </dialog>
+        <dialog id="project-edit-todo-dialog">
+            <button command="close" commandFor="project-edit-todo-dialog" class="close-dialog-btn" type="button">X</button>
+            <form action="" id="project-edit-todo-form">
+                <div class="edit-todo-title">
+                    <label for="edit-todo-title">Title:</label>
+                    <input type="text" name="edit-todo-title" id="edit-todo-title">
+                </div>
+                <div class="edit-todo-description">
+                    <label for="edit-todo-description">Description:</label>
+                    <input type="text" name="edit-todo-description" id="edit-todo-description">
+                </div>
+                <div class="edit-todo-due-date">
+                    <label for="edit-todo-due-date">Due date:</label>
+                    <input type="date" name="edit-todo-due-date" id="edit-todo-due-date">
+                </div>
+                <div class="edit-todo-priority">
+                    <label for="edit-todo-priority">Priority:</label>
+                    <select name="edit-todo-priority" id="edit-todo-priority">
+                        <option value="Low">Low</option>
+                        <option value="Mid">Mid</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+                <button id="project-edit-todo-btn">Add</button>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>
