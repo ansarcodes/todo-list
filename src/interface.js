@@ -53,6 +53,7 @@ function projectController(projectList){
     projectList.forEach(projectItem => {
         const project = document.createElement("div");
         project.classList.add("project");
+        project.dataset.id = projectItem.id;
         const projectNameContainer = document.createElement("div");
         projectNameContainer.classList.add("project-name-container");
         const projectName = document.createElement("div");
@@ -113,7 +114,7 @@ function projectController(projectList){
 function projectTodoListController(projectList){
     projectList.forEach((projectItem)=>{
         // console.log(Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project").querySelector(".project-todo-list"));
-        const projectTodoListContainer = Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectItem.name).closest(".project").querySelector(".project-todo-list");
+        const projectTodoListContainer = Array.from(document.querySelectorAll(".project")).find(project=>project.dataset.id==projectItem.id).querySelector(".project-todo-list");
         projectTodoListContainer.replaceChildren();
         projectItem.todoList.forEach(todoItem => {
             const todo = document.createElement("div");

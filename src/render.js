@@ -41,12 +41,12 @@ export default function renderPage(){
         //add edit button as well, google how to queryselectorall multiple selectors
         document.querySelectorAll(".project-add-todo-btn").forEach((button)=>{
             button.addEventListener("click", () => {
-                document.getElementById("project-add-todo-dialog").dataset.openedBy = button.parentElement.querySelector(".project-name").textContent;
+                document.getElementById("project-add-todo-dialog").dataset.openedBy = button.closest(".project").dataset.id;
             })
         })
         document.querySelectorAll(".project-edit-btn").forEach((button)=>{
             button.addEventListener("click", () => {
-                document.getElementById("edit-project-dialog").dataset.openedBy = button.parentElement.querySelector(".project-name").textContent;
+                document.getElementById("edit-project-dialog").dataset.openedBy = button.closest(".project").dataset.id;
             })
         })
     };
@@ -65,9 +65,9 @@ export default function renderPage(){
 
     document.getElementById("edit-project-btn").addEventListener("click", (event)=>{
         event.preventDefault();
-        let projectName = document.getElementById("edit-project-dialog").dataset.openedBy;
+        let projectId = document.getElementById("edit-project-dialog").dataset.openedBy;
         let projectNewName = document.getElementById("edit-project-title").value;
-        projectList.get().find(project=>project.name==projectName).name = projectNewName;
+        projectList.get().find(project=>project.id==projectId).name = projectNewName;
         document.getElementById("edit-project-dialog").close();
         document.getElementById("edit-project-dialog-form").reset();
         projectController(projectList.get());
@@ -83,8 +83,8 @@ export default function renderPage(){
         let newTodoDueDate = document.getElementById("new-todo-due-date").value;
         let newTodoPriority = document.getElementById("new-todo-priority").value;
         let newTodo = new TodoItem(newTodoTitle, newTodoDescription, newTodoDueDate, newTodoPriority);
-        let projectName = document.getElementById("project-add-todo-dialog").dataset.openedBy;
-        projectList.get().find(project=>project.name==projectName).addTodo(newTodo);
+        let projectId = document.getElementById("project-add-todo-dialog").dataset.openedBy;
+        projectList.get().find(project=>project.id==projectId).addTodo(newTodo);
         // console.log(Array.from(document.querySelectorAll(".project-name")).find(projectNameDiv=>projectNameDiv.textContent==projectName).closest(".project"));
         // console.log(document.querySelector(".project"));
         // projectTodoListController(projectList.get());
