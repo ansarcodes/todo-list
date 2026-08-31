@@ -82,10 +82,10 @@ function projectController(projectList){
             const todo = document.createElement("div");
             todo.classList.add("todo");
             todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
+            todo.dataset.id = todoItem.id;
             const todoMark = document.createElement("input");
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
-            todoMark.dataset.id = todoItem.id;
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;
@@ -122,10 +122,10 @@ function projectTodoListController(projectList){
             const todo = document.createElement("div");
             todo.classList.add("todo");
             todo.classList.add(`priority-${todoItem.priority.toLowerCase()}`);
+            todo.dataset.id = todoItem.id;
             const todoMark = document.createElement("input");
             todoMark.type="checkbox";
             todoMark.classList.add("todo-checkbox");
-            todoMark.dataset.id = todoItem.id;
             const todoName = document.createElement("div");
             todoName.classList.add("todo-name");
             todoName.textContent = todoItem.title;

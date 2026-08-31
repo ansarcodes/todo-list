@@ -22,8 +22,11 @@ export default function renderPage(){
     // console.log(item1.id);
     function todoListeners() {
         document.querySelectorAll(".todo-checkbox").forEach((checkbox)=>{
-            checkbox.addEventListener("click", (event) => {
-                todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
+            checkbox.addEventListener("click", () => {
+                let projectId = checkbox.closest(".project").dataset.id;
+                let todoId = checkbox.closest(".todo").dataset.id;
+                todoManipulation.markComplete(projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId));
+                // todoManipulation.markComplete(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==event.target.dataset.id))).todoList.find(todo=>todo.id==event.target.dataset.id));
                 // projectList.get().find(project=>project.todoList.find(todo=>todo.id==event.target.dataset.id))
                 // projectList.get().forEach((project)=>{
                 //     project.todoList.find()
@@ -35,7 +38,10 @@ export default function renderPage(){
         })
         document.querySelectorAll(".todo").forEach((todoDiv)=>{
             todoDiv.addEventListener("click", () => {
-                mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
+                let projectId = todoDiv.closest(".project").dataset.id;
+                let todoId = todoDiv.dataset.id;
+                mainController(projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId))
+                // mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
             })
         })
         //add edit button as well, google how to queryselectorall multiple selectors
@@ -47,6 +53,12 @@ export default function renderPage(){
         document.querySelectorAll(".project-edit-btn").forEach((button)=>{
             button.addEventListener("click", () => {
                 document.getElementById("edit-project-dialog").dataset.openedBy = button.closest(".project").dataset.id;
+            })
+        });
+        document.querySelectorAll(".todo-edit-btn").forEach((button)=>{
+            button.addEventListener("click", () => {
+                console.log(button.closest(".todo"));
+                // document.getElementById("edit-todo-dialog").dataset.openedBy = button.closest(".todo-checkbox").dataset.id;
             })
         })
     };
