@@ -81,7 +81,9 @@ export default function renderPage(){
         })
         document.querySelectorAll(".project-edit-btn").forEach((button)=>{
             button.addEventListener("click", () => {
-                document.getElementById("edit-project-dialog").dataset.openedBy = button.closest(".project").dataset.id;
+                let projectId = button.closest(".project").dataset.id;
+                document.getElementById("edit-project-dialog").dataset.openedBy = projectId;
+                document.getElementById("edit-project-title").value = projectList.get().find(project=>project.id == projectId).name;
             })
         });
     };
