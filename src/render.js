@@ -40,7 +40,12 @@ export default function renderPage(){
             todoDiv.addEventListener("click", () => {
                 let projectId = todoDiv.closest(".project").dataset.id;
                 let todoId = todoDiv.dataset.id;
-                mainController(projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId))
+                let projectItem = projectList.get().find(project=>project.id==projectId);
+                let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+                mainController(todoItem);
+                // if (projectItem.todoList.includes(todoItem)){
+                //     mainController(todoItem);
+                // }
                 // mainController(projectList.get().find(project=>project.todoList.includes(project.todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id))).todoList.find(todo=>todo.id==todoDiv.querySelector(".todo-checkbox").dataset.id));
             })
         })
@@ -57,6 +62,17 @@ export default function renderPage(){
 
             })
         });
+        document.querySelectorAll(".todo-remove-btn").forEach((button)=>{
+            button.addEventListener("click", () => {
+                let todoId = button.closest(".todo").dataset.id;
+                document.getElementById("remove-todo-dialog").dataset.openedBy = todoId;
+                // let projectId = button.closest(".project").dataset.id;
+                // let projectItem = projectList.get().find(project=>project.id==projectId);
+                // let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+                // document.querySelector(`[data-id="${todoId}"]`).remove();
+                // projectItem.removeTodo(todoItem);
+            })
+        })
         //add edit button as well, google how to queryselectorall multiple selectors
         document.querySelectorAll(".project-add-todo-btn").forEach((button)=>{
             button.addEventListener("click", () => {
@@ -129,7 +145,21 @@ export default function renderPage(){
     todoListeners();
     document.getElementById("edit-todo-dialog").close();
     document.getElementById("edit-todo-form").reset();
-})
+    })
+    
+    document.getElementById("remove-todo-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
+        let todoId = document.getElementById("remove-todo-dialog").dataset.openedBy;
+        let projectId = document.querySelector(`[data-id="${todoId}"]`).closest(".project").dataset.id;
+        let projectItem = projectList.get().find(project=>project.id==projectId);
+        let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+        projectItem.removeTodo(todoItem);
+
+        projectController(projectList.get());
+        todoListeners();
+        document.getElementById("remove-todo-dialog").close();
+        document.getElementById("remove-todo-form").reset();
+    })
     
 
 }

@@ -92,6 +92,16 @@
                 <button id="edit-todo-btn">Edit</button>
             </form>
         </dialog>
+        <dialog id="remove-todo-dialog">
+            <button command="close" commandFor="remove-todo-dialog" class="close-dialog-btn" type="button">X</button>        
+            <form action="" id="remove-todo-form">
+                <div class="remove-todo-title">Are you sure?</div>
+                <div class="remove-todo-btns">
+                    <button id="remove-todo-btn">Yes</button>
+                    <button id="cancel-remove-todo-btn" command="close" commandFor="remove-todo-dialog" type="button">Cancel</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>

@@ -8,7 +8,7 @@ export default class Project {
         this.todoList.push(todo);
     };
     removeTodo(todo){
-        this.todoList.splice(this.todoList.indexOf(todo),1);
+        this.todoList.splice(this.todoList.indexOf(todo), 1);
     };
     todoList(){
         return this.todoList;

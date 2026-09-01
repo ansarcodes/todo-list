@@ -102,6 +102,8 @@ function projectController(projectList){
             todoEditBtn.append(todoEditBtnIcon);
             const todoRemoveBtn = document.createElement("button");
             todoRemoveBtn.classList.add("todo-remove-btn");
+            todoRemoveBtn.command = "show-modal";
+            todoRemoveBtn.commandForElement = document.getElementById("remove-todo-dialog");
             const todoRemoveBtnIcon = document.createElement("img");
             todoRemoveBtnIcon.classList.add("remove-icon");
             todoRemoveBtnIcon.src = removeIcon;
