@@ -16,7 +16,15 @@
 //     }
 // };
 // todoManipulation.markComplete= "123";
-
+const storageUpdate = (()=>{
+    const set = (key, value) => {
+        localStorage.setItem(key, JSON.stringify(value));
+    }
+    const get = (key) => {
+        JSON.parse(localStorage.getItem(key))
+    }
+    return {set,get}
+})();
 const todoManipulation = (()=>{
     const changeTitle = (todo, title) => {
         todo.title = title;
@@ -37,15 +45,29 @@ const todoManipulation = (()=>{
 })();
 
 const projectList = (() => {
-    const projectListArray = [];
+    let projectListArray = [];
+    if (localStorage.getItem("projectListArray")) {
+        projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
+    } else {
+        localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
+        projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
+    }
     const get = () => {
+        // if (!localStorage.getItem("projectListArray")){
+        //     localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
+        //     return JSON.parse(localStorage.getItem("projectListArray"));
+        // } else {
+        //     return JSON.parse(localStorage.getItem("projectListArray"));
+        // }
         return projectListArray;
     }
     const add = (project) => {
         projectListArray.push(project);
+        localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
     }
     const remove = (project) => {
         projectListArray.splice(projectListArray.indexOf(project), 1);
+        localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
     }
     return { get, add, remove };
 })();

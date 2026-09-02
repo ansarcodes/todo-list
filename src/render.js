@@ -163,7 +163,20 @@ export default function renderPage(){
         document.getElementById("remove-todo-form").reset();
     })
     
-
+    // let projectListJSON = JSON.stringify(projectList.get());
+    // console.log(projectListJSON);
+    // let projectListJSONparsed = JSON.parse(projectListJSON);
+    // console.log(projectListJSONparsed);
+    // console.log(projectList.get());
+    // localStorage.setItem("projects", projectListJSON);
+    let something123 = [];
+    // let something123JSON = JSON.stringify(something123);
+    localStorage.setItem("something123", JSON.stringify(something123));
+    let something321 = JSON.parse(localStorage.getItem("something123"));
+    something321.push("nothing");
+    console.log(something321);
+    // JSON.parse(localStorage.getItem("something123")).push("nothing");
+    // console.log(JSON.parse(localStorage.getItem("something123")).push("nothing"));
 }
 
 //edit project, maybe recycle dialog forms
