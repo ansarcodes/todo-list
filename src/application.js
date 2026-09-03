@@ -73,3 +73,5 @@ const projectList = (() => {
 })();
 
 export { todoManipulation, projectList };
+
+//figure out how to make localstorage work on this project, where actually put things
