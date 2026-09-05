@@ -3,21 +3,29 @@ import Project from "./projects.js";
 import { todoManipulation, projectList } from "./application.js";
 import { mainController, projectController, projectTodoListController } from "./interface.js";
 export default function renderPage(){
-    let project1 = new Project("1");
-    let project2 = new Project("2");
+    localStorage.setItem("hello", JSON.stringify(new Project("hello")));
+    console.log(JSON.parse(localStorage.getItem("hello")));
     let item1 = new TodoItem("title", "description", "2026-07-25", "High");
-    let item2 = new TodoItem("title2", "description2", "2026-07-25", "Mid");
-    let item3 = new TodoItem("title3", "description3", "2026-08-08", "Low");
-    let item4 = new TodoItem("title4", "description4", "2026-08-18", "Mid");
-    project1.addTodo(item1);
-    project1.addTodo(item2);
-    project1.addTodo(item3);
-    project2.addTodo(item4);
-    projectList.add(project1);
-    projectList.add(project2);
+    JSON.parse(localStorage.getItem("hello")).addTodo(item1);
+    // if (!localStorage.getItem("projectListArray")){
+    //     let project1 = new Project("1");
+    //     let project2 = new Project("2");
+    //     let item1 = new TodoItem("title", "description", "2026-07-25", "High");
+    //     let item2 = new TodoItem("title2", "description2", "2026-07-25", "Mid");
+    //     let item3 = new TodoItem("title3", "description3", "2026-08-08", "Low");
+    //     let item4 = new TodoItem("title4", "description4", "2026-08-18", "Mid");
+    //     project1.addTodo(item1);
+    //     project1.addTodo(item2);
+    //     project1.addTodo(item3);
+    //     project2.addTodo(item4);
+    //     projectList.add(project1);
+    //     projectList.add(project2);
+        
+    // }
     // console.log(project1.todoList);
     projectController(projectList.get());
-    mainController(item1);
+    console.log(projectList.get()[0].todoList[0]);
+    mainController(projectList.get()[0].todoList[0]);
     // mainController(item2);
     // console.log(item1.id);
     function todoListeners() {
@@ -169,12 +177,12 @@ export default function renderPage(){
     // console.log(projectListJSONparsed);
     // console.log(projectList.get());
     // localStorage.setItem("projects", projectListJSON);
-    let something123 = [];
+    // let something123 = [];
     // let something123JSON = JSON.stringify(something123);
-    localStorage.setItem("something123", JSON.stringify(something123));
-    let something321 = JSON.parse(localStorage.getItem("something123"));
-    something321.push("nothing");
-    console.log(something321);
+    // localStorage.setItem("something123", JSON.stringify(something123));
+    // let something321 = JSON.parse(localStorage.getItem("something123"));
+    // something321.push("nothing");
+    // console.log(something321);
     // JSON.parse(localStorage.getItem("something123")).push("nothing");
     // console.log(JSON.parse(localStorage.getItem("something123")).push("nothing"));
 }

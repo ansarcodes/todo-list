@@ -45,13 +45,41 @@ const todoManipulation = (()=>{
 })();
 
 const projectList = (() => {
-    let projectListArray = [];
-    if (localStorage.getItem("projectListArray")) {
-        projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
-    } else {
-        localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
-        projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
-    }
+    let projectListArray = JSON.parse(localStorage.getItem("projectListArray")) || [{
+        name: "Default", 
+        todoList:[
+            {
+                title: "Note 1",
+                description: "The Samsung Galaxy Note 1 is a 2011 pioneering large-screen smartphone that popularized the phablet category.",
+                dueDate:"2026-09-05",
+                priority:"High",
+                isComplete:false,
+                id:"f9588ad8-1cba-431d-9f20-5b3f3d1841e7"
+            },
+            {
+                title: "Note 2",
+                description: "The Samsung Galaxy Note II is a phablet smartphone released by Samsung in September 2012 as the successor to the original Galaxy Note.",
+                dueDate:"2026-09-06",
+                priority:"Mid",
+                isComplete:false,
+                id:"807f876c-9e06-4a15-ba0d-ea22ba00a677"
+            },
+            {
+                title: "Note 3",
+                description: "The Samsung Galaxy Note 3 is an Android phablet that was released by Samsung in September 2013.",
+                dueDate:"2026-09-07",
+                priority:"Low",
+                isComplete:false,
+                id:"c5b75b41-f37c-4832-84ca-09fad5cb5e95"
+            },
+        ],
+        id: "899334d7-4b21-40d4-9165-1c14ff532ea4"}];
+    // if (localStorage.getItem("projectListArray")) {
+    //     projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
+    // } else {
+    //     localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
+    //     projectListArray = JSON.parse(localStorage.getItem("projectListArray"));
+    // }
     const get = () => {
         // if (!localStorage.getItem("projectListArray")){
         //     localStorage.setItem("projectListArray", JSON.stringify(projectListArray));
@@ -59,6 +87,7 @@ const projectList = (() => {
         // } else {
         //     return JSON.parse(localStorage.getItem("projectListArray"));
         // }
+
         return projectListArray;
     }
     const add = (project) => {
