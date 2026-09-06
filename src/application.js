@@ -16,15 +16,7 @@
 //     }
 // };
 // todoManipulation.markComplete= "123";
-const storageUpdate = (()=>{
-    const set = (key, value) => {
-        localStorage.setItem(key, JSON.stringify(value));
-    }
-    const get = (key) => {
-        JSON.parse(localStorage.getItem(key))
-    }
-    return {set,get}
-})();
+
 const todoManipulation = (()=>{
     const changeTitle = (todo, title) => {
         todo.title = title;
