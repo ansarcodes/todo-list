@@ -3,10 +3,19 @@ import Project from "./projects.js";
 import { todoManipulation, projectList } from "./application.js";
 import { mainController, projectController, projectTodoListController } from "./interface.js";
 export default function renderPage(){
-    localStorage.setItem("hello", JSON.stringify(new Project("hello")));
-    console.log(JSON.parse(localStorage.getItem("hello")));
-    let item1 = new TodoItem("title", "description", "2026-07-25", "High");
-    JSON.parse(localStorage.getItem("hello")).addTodo(item1);
+    // let storedProjects = [new Project("Default")];
+    // let project2 = new Project("2");
+    // let item1 = new TodoItem("1", "2", "2025-09-11", "Mid");
+    // project2.addTodo(item1);
+    // storedProjects.push(project2);
+    // localStorage.setItem("storedProjects", JSON.stringify(storedProjects));
+    // let JSONstoredProjects = JSON.parse(localStorage.getItem("storedProjects")).map(project=>new Project(project.name, project.id, project.todoList.map(todo=>new TodoItem(todo.title, todo.description, todo.dueDate, todo.priority, todo.id))));
+    // let JSONstoredProjects = JSON.parse(localStorage.getItem("storedProjects"));
+    // let hydratedJSONstoredProjects = JSONstoredProjects.map(project=>new Project(project.name, project.id));
+    // JSONstoredProjects.map(project=>new Project(project.name, project.id));
+    // console.log(storedProjects);
+    // console.log(JSONstoredProjects);
+    // console.log(hydratedJSONstoredProjects)
     // if (!localStorage.getItem("projectListArray")){
     //     let project1 = new Project("1");
     //     let project2 = new Project("2");
@@ -24,8 +33,9 @@ export default function renderPage(){
     // }
     // console.log(project1.todoList);
     projectController(projectList.get());
-    console.log(projectList.get()[0].todoList[0]);
-    mainController(projectList.get()[0].todoList[0]);
+    // console.log(projectList.get());
+    // console.log(projectList.get()[0].todoList[0]);
+    // mainController(projectList.get()[0].todoList[0]);
     // mainController(item2);
     // console.log(item1.id);
     function todoListeners() {

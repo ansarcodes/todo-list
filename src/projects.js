@@ -1,8 +1,8 @@
 export default class Project {
-    constructor(name) {
+    constructor(name, id, todoList) {
         this.name = name;
-        this.todoList = [];
-        this.id = crypto.randomUUID();
+        this.todoList = todoList || [];
+        this.id = id || crypto.randomUUID();
     }
     addTodo(todo){
         this.todoList.push(todo);
