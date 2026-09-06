@@ -58,7 +58,7 @@ export default function renderPage(){
             todoDiv.addEventListener("click", () => {
                 let projectId = todoDiv.closest(".project").dataset.id;
                 let todoId = todoDiv.dataset.id;
-                let projectItem = projectList.get().find(project=>project.id==projectId);
+                // let projectItem = projectList.get().find(project=>project.id==projectId);
                 let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
                 mainController(todoItem);
                 // if (projectItem.todoList.includes(todoItem)){
@@ -147,24 +147,34 @@ export default function renderPage(){
         document.getElementById("edit-project-dialog-form").reset();
         projectController(projectList.get());
         todoListeners();
-        console.log(projectList.get());
+        // console.log(projectList.get());
     });
+    document.getElementById("remove-project-btn").addEventListener("click", (event)=>{
+        event.preventDefault();
+        let projectId = document.getElementById("edit-project-dialog").dataset.openedBy;
+        let projectItem = projectList.get().find(project=>project.id==projectId);
+        projectList.remove(projectItem);
+        document.getElementById("edit-project-dialog").close();
+        document.getElementById("edit-project-dialog-form").reset();
+        projectController(projectList.get());
+        todoListeners();
+    })
 
     document.getElementById("edit-todo-btn").addEventListener("click", (event)=>{
-    event.preventDefault();
-    let todoId = document.getElementById("edit-todo-dialog").dataset.openedBy;
-    let projectId = document.querySelector(`[data-id="${todoId}"]`).closest(".project").dataset.id;
-    let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
-    todoItem.title = document.getElementById("edit-todo-title").value;
-    todoItem.description = document.getElementById("edit-todo-description").value;
-    todoItem.dueDate = document.getElementById("edit-todo-due-date").value;
-    todoItem.priority = document.getElementById("edit-todo-priority").value;
+        event.preventDefault();
+        let todoId = document.getElementById("edit-todo-dialog").dataset.openedBy;
+        let projectId = document.querySelector(`[data-id="${todoId}"]`).closest(".project").dataset.id;
+        let todoItem = projectList.get().find(project=>project.id==projectId).todoList.find(todo=>todo.id==todoId);
+        todoItem.title = document.getElementById("edit-todo-title").value;
+        todoItem.description = document.getElementById("edit-todo-description").value;
+        todoItem.dueDate = document.getElementById("edit-todo-due-date").value;
+        todoItem.priority = document.getElementById("edit-todo-priority").value;
 
-    projectController(projectList.get());
-    mainController(todoItem);
-    todoListeners();
-    document.getElementById("edit-todo-dialog").close();
-    document.getElementById("edit-todo-form").reset();
+        projectController(projectList.get());
+        mainController(todoItem);
+        todoListeners();
+        document.getElementById("edit-todo-dialog").close();
+        document.getElementById("edit-todo-form").reset();
     })
     
     document.getElementById("remove-todo-btn").addEventListener("click", (event)=>{
