@@ -152,7 +152,7 @@ function mainController(todo){
     mainDueDate.textContent = todo.dueDate;
     const mainPriority = document.createElement("div");
     mainPriority.classList.add(`priority-${todo.priority.toLowerCase()}`);
-    mainPriority.textContent = todo.priority;
+    mainPriority.textContent = "Priority:"+todo.priority;
     const mainCompleteStatus = document.createElement("div");
     mainCompleteStatus.classList.add(`completed-${todo.isComplete}`);
     const mainDescription = document.createElement("div");
