@@ -187,4 +187,4 @@ export default function renderPage(){
     // console.log(JSON.parse(localStorage.getItem("something123")).push("nothing"));
 }
 
-//edit project, maybe recycle dialog forms
+//extend projects and figure out how to add methods back
